@@ -18,13 +18,21 @@ public class User {
     private Integer id;
 
     @Column(length=40, nullable = false, unique = true)
+
     private String email;
 
     @Column(length=40, nullable = false)
     private String password;
 
+    @Column(length=40, nullable = false)
+    private String fName;
+
+    @Column(length=40, nullable = false)
+    private String lName;
+
     @Transient
     private String photo;
+
     @ColumnDefault("1")
     private boolean enabled;
 
@@ -36,12 +44,17 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+
     public void addRoles(List<Role> rolesList){
         roles.addAll(rolesList);
     }
 
-    public User(String email, String password){
+    public User(String fName, String lName,String email, String password,  boolean enabled){
+        this.fName = fName;
+        this.lName = lName;
         this.email = email;
         this.password = password;
+        this.enabled = enabled;
     }
+
 }

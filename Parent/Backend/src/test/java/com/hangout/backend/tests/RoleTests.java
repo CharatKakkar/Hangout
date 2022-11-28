@@ -24,5 +24,12 @@ public class RoleTests {
         Role savedRole  =  roleRepo.save(role);
         Assert.isTrue(savedRole.getId() > 0, "Id is not gt 0");
 
+        Role role2 = new Role("Manager","Manager role");
+        Role savedRole2  =  roleRepo.save(role2);
+        Assert.isTrue(savedRole2.getId() > 0, "Id is not gt 0");
+
+        Role role3 = new Role("Sales","Sales role");
+        Role savedRole3  =  roleRepo.save(role3);
+        Assert.isTrue(savedRole3.getId() > 0, "Id is not gt 0");
     }
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="width=device-width,initial-scale=1.0, minimum-scale=1.0" name="viewport">
+
+<title>Login - Shopme Admin</title>
+
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+<!-- CSS only -->
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid text-center">
+<div>
+    <img class="img-fluid" th:src="@{/images/img.png}" />
+</div>
+
+<form method="post" name='f' style="max-width: 400px; margin: 0 auto" th:action="@{/login}">
+    <div th:if="${param.error}">
+        <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+    </div>
+    <div th:if="${param.logout}">
+        <p class="text-warning">You have been logged out.</p>
+    </div>
+    <div class="border border-secondary rounded p-3">
+        <p>
+            <input class="form-control" name='email' placeholder="E-mail" type='text' value=''>
+        </p>
+        <p>
+            <input class="form-control" name='password' placeholder="Password" type='password'/>
+        </p>
+        <input class="btn btn-primary" name="login" type="submit" value="Login"/>
+        <p>
+        <span>Remember Me:</span>
+            <input type="checkbox" name="remember-me" />
+        </p>
+
+        <p></p>
+
+        <p>
+            <a th:href="@{/register}">Register/Signup here</a>
+        </p>
+
+        </span>
+
+    </div>
+</form>
+</div>
+</body>
+</html>

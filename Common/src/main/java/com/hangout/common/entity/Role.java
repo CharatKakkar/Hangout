@@ -23,4 +23,8 @@ public class Role {
         this.name = name;
         this.description = desc;
     }
+
+    public String toString(){
+        return name;
+    }
 }
